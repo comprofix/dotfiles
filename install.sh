@@ -47,6 +47,7 @@ ln -s `pwd`/config/lxterminal ~/.config/lxterminal
 # Setup AwesomeWM
 echo "Setup AwesomeWM"
 rm -fr ~/.xinitrc
+rm -fr ~/.config/awesome
 ln -s `pwd`/xinitrc ~/.xinitrc
 ln -s `pwd`/config/awesome ~/.config/awesome
 

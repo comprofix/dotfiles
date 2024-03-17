@@ -9,20 +9,35 @@ browser qutebrowser
 macro i set browser "feh %u"; open-in-browser ; set browser "qutebrowser"
 macro w set browser "w3m %u"; open-in-browser ; set browser "qutebrowser"
 
+# Dark theme based on Dracula color scheme for newsboat.
+#
+# In order to use this color scheme, you must first configure
+# your terminal emulator to use the Dracula palette.
+# See <https://draculatheme.com/> for more information.
 
-# col # item              # fg      # bg
-#color background          color7   default        # the most bottom bar
-#color listnormal          color7   default        # unfocused and without N
-#color listnormal_unread   color7   default        # unfocused and with N
-#color listfocus           color7   color8         # focused and without N
-#color listfocus_unread    color7   color8   bold  # focused but with N
-#color info                color0   color1         # bottom and top info bars
-color article             color15 default        # content of an article
+color background default default
+color listnormal color255 default
+color listfocus color238 color255 standout
+color listnormal_unread color47 default
+color listfocus_unread color238 color47 standout
+color info color141 color236
 
 # highlights
-highlight article "^(Feed|Link):.*$" color14 default bold
-highlight article "^(Title|Date|Author):.*$" color11 default bold
-highlight article "https?://[^ ]+" color12 default underline
-highlight article "\\[[0-9]+\\]" color10 default bold
-highlight article "\\[image\\ [0-9]+\\]" color9 default bold
-highlight article "^(Flags):.*$" color9 default bold
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+highlight article "(^Feed:|^Title:|^Date:|^Link:|^Author:)" cyan default bold
+highlight article "https?://[^ ]+" yellow default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(embedded flash\\)$" magenta default
+
+# highlights
+#highlight article "^(Feed|Link):.*$" color14 default bold
+#highlight article "^(Title|Date|Author):.*$" color11 default bold
+#highlight article "https?://[^ ]+" color12 default underline
+#highlight article "\\[[0-9]+\\]" color10 default bold
+#highlight article "\\[image\\ [0-9]+\\]" color9 default bold
+#highlight article "^(Flags):.*$" color9 default bold

@@ -61,7 +61,10 @@ ln -s `pwd`/config/picom ~/.config/picom
 
 # Setup qutebrowser
 rm -fr ~/.config/qutebrowser
-ln -s `pwd`/config/qutebrowser ~/.config/qutebrowser
+mkdir ~/.config/qutebrowser
+mkdir ~/.config/qutebrowser/bookmarks
+ln -s `pwd`/config/qutebrowser/config.py ~/.config/qutebrowser/config.py
+ln -s `pwd`/config/qutebrowser/bookmarks/urls ~/.config/qutebrowser/bookmarks/urls
 
 # Set Newsboat
 rm -fr ~/.config/newsboat

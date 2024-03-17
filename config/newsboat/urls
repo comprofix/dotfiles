@@ -1,0 +1,31 @@
+# starred Articles
+# ctrl-e to flag, s-enter to star it.
+# ctrl-e, delete to remove flag
+"query:Starred:flags # \"s\""
+"query:Unread:unread = \"yes\""
+
+# (Reddit)
+# https://reddit.com/r/antiwork.rss "~antiwork" "(Reddit)"
+https://reddit.com/r/archlinux.rss "~archlinux" "(Reddit)"
+https://reddit.com/r/awesomewm.rss "~awesomewm" "(Reddit)"
+https://reddit.com/r/debian.rss "~debian" "(Reddit)"
+https://reddit.com/r/devops.rss "~devops" "(Reddit)"
+https://reddit.com/r/homelab.rss "~homelab" "(Reddit)"
+https://reddit.com/r/linux.rss "~linux" "(Reddit)"
+https://reddit.com/r/linuxadmin.rss "~linuxadamin" "(Reddit)"
+https://reddit.com/r/powershell.rss "~powershell" "(Reddit)"
+https://reddit.com/r/proxmox.rss "~proxmox" "(Reddit)"
+https://reddit.com/r/selfhosted.rss "~selfhosted" "(Reddit)"
+https://reddit.com/r/sysadmin.rss "~sysadmin" "(Reddit)"
+
+# (Blogs)
+https://blog.devolutions.net/feed/rss.xml "~devolutions" "(Blogs)"
+
+# (News)
+https://www.news.com.au/content-feeds/latest-news-national/ "~newscomau" "(News)"
+https://archlinux.org/feeds/news/ "~archlinuxnews" "(News)"
+
+# (Podcasts)
+https://selfhosted.show/rss "~self-hosted" "(Podcasts)"
+https://linuxunplugged.com/rss "~linuxunplugged" "(Podcasts)"
+https://linuxactionnews.com/rss "~linuxactionnews" "(Podcasts)"

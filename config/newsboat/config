@@ -1,0 +1,28 @@
+
+auto-reload yes
+download-path "~/Music/%h/%n"
+max-downloads 3
+player "ncmpcpp"
+
+
+browser qutebrowser
+macro i set browser "feh %u"; open-in-browser ; set browser "qutebrowser"
+macro w set browser "w3m %u"; open-in-browser ; set browser "qutebrowser"
+
+
+# col # item              # fg      # bg
+#color background          color7   default        # the most bottom bar
+#color listnormal          color7   default        # unfocused and without N
+#color listnormal_unread   color7   default        # unfocused and with N
+#color listfocus           color7   color8         # focused and without N
+#color listfocus_unread    color7   color8   bold  # focused but with N
+#color info                color0   color1         # bottom and top info bars
+color article             color15 default        # content of an article
+
+# highlights
+highlight article "^(Feed|Link):.*$" color14 default bold
+highlight article "^(Title|Date|Author):.*$" color11 default bold
+highlight article "https?://[^ ]+" color12 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+highlight article "\\[image\\ [0-9]+\\]" color9 default bold
+highlight article "^(Flags):.*$" color9 default bold

@@ -1,0 +1,26 @@
+set realname = "Matthew McKinnon"
+set from = "mmckinnon@comprofix.com"
+set imap_user = "mmckinnon@comprofix.com"
+set smtp_url="smtp://$imap_user@outlook.office365.com/"
+
+#macro index d "s=Deleted Items\n" "move message to trash"
+#macro pager d "C=Deleted Items\n\n<exit><delete-message>" "move message to trash"
+
+set imap_authenticators = "oauthbearer:xoauth2"
+set imap_oauth_refresh_command = "~/.mutt/mutt_oauth2.py ~/.mutt/oauth2"
+set smtp_authenticators = ${imap_authenticators}
+set smtp_oauth_refresh_command = ${imap_oauth_refresh_command}
+
+
+set folder = "imap://$imap_user@outlook.office365.com/"
+set spoolfile = "+Inbox"
+set record = "+Sent Items"
+set postponed = "+Drafts"
+set trash = "+Deleted Items"
+
+
+set move = no
+set imap_check_subscribed = yes
+#set imap_list_subscribed = yes
+mailboxes "+Inbox" "+Sent Items" "+Deleted Items" "+Drafts"
+

@@ -563,11 +563,11 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 
-    -- { rule = { class = "Lxterminal" },
-    --   properties = { 
-    --  screen = "HDMI-0",
-    --  tags = "WEB"}
-    -- },
+    { rule = { class = "qutebrowser" },
+       properties = { 
+       screen = "DP-2",
+       tags = "WEB"}
+     },
     
     
 }

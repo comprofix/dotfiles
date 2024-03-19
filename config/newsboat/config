@@ -33,6 +33,7 @@ highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" blue default
 highlight article ":.*\\(embedded flash\\)$" magenta default
+highlight article "^(Flags):.*$" color9 default bold
 
 # highlights
 #highlight article "^(Feed|Link):.*$" color14 default bold
@@ -40,4 +41,3 @@ highlight article ":.*\\(embedded flash\\)$" magenta default
 #highlight article "https?://[^ ]+" color12 default underline
 #highlight article "\\[[0-9]+\\]" color10 default bold
 #highlight article "\\[image\\ [0-9]+\\]" color9 default bold
-#highlight article "^(Flags):.*$" color9 default bold

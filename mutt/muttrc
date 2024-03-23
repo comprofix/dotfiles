@@ -13,6 +13,7 @@ set sort_aux = reverse-last-date-received
 #set sort_aux = reverse-date-received
 set smart_wrap
 set signature=$HOME/.mutt/signature
+set sig_on_top = yes
 
 #alternative_order text/plain test text/html
 

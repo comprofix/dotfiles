@@ -30,3 +30,5 @@
 
 [core]
 	autocrlf = false
+[safe]
+	directory = /opt/tessdata

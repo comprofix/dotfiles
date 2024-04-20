@@ -14,3 +14,4 @@ run parcellite
 #run picom --config $HOME/.config/picom/picom.conf
 run bitwarden-desktop
 run remmina -i
+run onedrivegui

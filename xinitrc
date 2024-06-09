@@ -37,8 +37,9 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
-xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP-3 --off --output None-1-1 --off
+#xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP-3 --off --output None-1-1 --off
 #exec awesome
-export XDG_XSESSION_TYPE=x11
-export XDG_BACKEND=x11
-exec awesome > ~/.xsession.log 2>&1
+#export XDG_XSESSION_TYPE=x11
+#export XDG_BACKEND=x11
+#exec awesome > ~/.xsession.log 2>&1
+#cinnamon

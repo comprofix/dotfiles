@@ -32,3 +32,5 @@
 	autocrlf = false
 [safe]
 	directory = /opt/tessdata
+[init]
+	defaultBranch = master

@@ -148,18 +148,17 @@ alias D='cd ~/Downloads'
 ## Vim Stuff
 alias eV='vim ~/.vim/vimrc'
 alias e='vim'
+alias se="sudo vim"
 
 #ZSH Stuff
 alias eZ='vim ~/.zshrc'
-alias eZA='atom ~/.zshrc'
 alias eA='vim ~/.zshrc_aliases'
-alias eAA='atom ~/.zshrc_aliases'
 alias Z='source ~/.zshrc'
 
 ## News and Music
-alias news='newsbeuter'
+alias news='newsboat'
+alias pods="podboat"
 alias nix='cortex linux'
-alias twit='turses'
 
 ## Net
 alias irc='weechat-curses'

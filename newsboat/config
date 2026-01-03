@@ -1,13 +1,24 @@
-
 auto-reload yes
 download-path "~/Music/%h/%n"
 max-downloads 3
 player "ncmpcpp"
 
+cleanup-on-quit yes
+external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
-browser qutebrowser
-macro i set browser "feh %u"; open-in-browser ; set browser "qutebrowser"
-macro w set browser "w3m %u"; open-in-browser ; set browser "qutebrowser"
+browser linkhandler
+macro , open-in-browser
+macro t set browser "tsp youtube-dl --add-metadata -ic" ; open-in-browser ; set browser linkhandler
+macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
+macro w set browser "microsoft-edge-stable %u" ; open-in-browser ; set browser linkhandler
+macro p set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
+macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
+macro r set browser "ttrv" ; open-in-browser
+
+# browser qutebrowser
+# macro i set browser "feh %u"; open-in-browser ; set browser "qutebrowser"
+# macro w set browser "w3m %u"; open-in-browser ; set browser "qutebrowser"
 
 # Dark theme based on Dracula color scheme for newsboat.
 #

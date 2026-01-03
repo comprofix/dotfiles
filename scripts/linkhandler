@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+if [ -z "$BROWSER" ]; then
+    desktop="$(xdg-settings get default-web-browser 2>/dev/null)"
+    case "$desktop" in
+        com.microsoft.Edge.desktop)
+            BROWSER="microsoft-edge-stable"
+            ;;
+        org.mozilla.firefox.desktop|firefox.desktop)
+            BROWSER="firefox"
+            ;;
+        org.mozilla.librewolf.desktop)
+            BROWSER="librewolf"
+            ;;
+        *)
+            BROWSER="${desktop%.desktop}"
+            ;;
+    esac
+fi
+
+: "${BROWSER:=qutebrowser}"
+
+
+# If no url given. Opens browser. For using script as $BROWSER.
+[ -z "$1" ] && { "$BROWSER" & disown; exit; }
+
+case "$1" in
+    *mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*)
+        mpv --input-ipc-server="/tmp/mpvsoc$(date +%s)" "$1" >/dev/null 2>&1 &
+        disown
+        ;;
+    *png|*jpg|*jpe|*jpeg|*gif)
+        file="/tmp/$(basename "$1")"
+        curl -sL "$1" > "$file" && sxiv -a "$file" >/dev/null 2>&1 &
+        disown
+        ;;
+    *mp3|*flac|*opus|*mp3?source*)
+        tsp curl -LO "$1" >/dev/null 2>&1 &
+        ;;
+    *)
+        if [ -f "$1" ]; then
+            "$TERMINAL" -e "$EDITOR $1"
+        else
+            "$BROWSER" "$1" >/dev/null 2>&1 &
+            disown
+        fi
+        ;;
+esac

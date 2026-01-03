@@ -19,7 +19,7 @@ https://reddit.com/r/selfhosted.rss "~selfhosted" "(Reddit)"
 https://reddit.com/r/sysadmin.rss "~sysadmin" "(Reddit)"
 
 # (Blogs)
-https://blog.devolutions.net/feed/rss.xml "~devolutions" "(Blogs)"
+#https://blog.devolutions.net/feed/rss.xml "~devolutions" "(Blogs)"
 
 # (News)
 https://www.news.com.au/content-feeds/latest-news-national/ "~newscomau" "(News)"

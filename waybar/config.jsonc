@@ -1,33 +1,135 @@
+// -*- mode: jsonc -*-
 {
-  "position": "top",
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["tray", "pulseaudio", "battery", "clock"],
-  "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  "layer": "top", // Waybar at top layer
+  "spacing": 10, // Gaps between modules
+  "modules-left": ["tray", "hyprland/submap"],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    //"keyboard-state",
+    "battery",
+    // "bluetooth",
+    "clock"
+  ],
+  // "modules-center": ["wlr/taskbar"],
+  "modules-center": ["hyprland/workspaces"],
+
+  // Modules configuration
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": false,
+    "format": "{icon}{name}",
+    "format-icons": {
+      "locked": " ",
+      "unlocked": " "
+    }
   },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 30,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["konsole", "xwaylandvideobridge"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 5,
+    "show-passive-items": true
+  },
+
+  "clock": {
+    "timezone": "Australia/Brisbane",
+    "format": "{:%a %d %b %Y | %I:%M %p}",
+    "tooltip-format": "<big><tt><small>{calendar}</small></tt></big>",
+    "on-click": "~/.config/scripts/float_calendar.sh"
+  },
+
   "battery": {
     "states": {
+      "good": 80,
       "warning": 30,
       "critical": 15
     },
-    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
-    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
-    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
-    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
-    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
   },
+
+  "network": {
+    "format-wifi": "{signalStrength}% 󰖩",
+    "format-ethernet": "Connected 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "format-linked": "{ifname} (No IP) 󱚵",
+    "format-disconnected": "Disconnected 󱚼",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click-right": "nm-connection-editor"
+  },
+
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁",
+    "on-click": "pavucontrol",
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
-    },
-    "on-click": "pavucontrol"
+      "headphone": "",
+      "default": ["", "", ""]
+    }
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "",
+    "format-on": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip": true,
+    "tooltip-format": "Controller: {controller_alias}\nAddress: {controller_address}\nStatus: {status}",
+    "tooltip-format-connected": "Controller: {controller_alias}\nAddress: {controller_address}\nConnected: {device_alias} ({device_address})\nBattery: {device_battery_percentage}%",
+    "on-click": "blueman-manager",
+    "on-click-right": "$HOME/.config/hypr/scripts/toggle_bluetooth.sh"
+  },
+
+
+  "hyprland/workspaces": {
+  "format": "{icon}",
+  "format-icons": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "active": "",
+    "default": ""
+  },
+  "persistent-workspaces": {
+    "HDMI-A-1": [1, 2, 3],
+    "DP-1": [4, 5, 6],
+    "DP-2": [7, 8, 9]
   }
+}
 }

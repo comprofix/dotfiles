@@ -1,11 +1,12 @@
-@define-color primary #96d8ff;
+/* @define-color primary #96d8ff; */
+@define-color primary #ffffff;
 @define-color background rgba(21, 18, 27, 0.8);
 
 /* All Modules */
 * {
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-  font-size: 97%;
+  font-size: 16px;
   background: rgba(21, 18, 27, 0);
 }
 window#waybar {
@@ -13,8 +14,8 @@ window#waybar {
 }
 tooltip {
   background: @background;
-  border-radius: 10px;
-  border-width: 10px;
+  border-radius: 1px;
+  border-width: 1px;
   border-style: solid;
   border-color: #11111b;
 }

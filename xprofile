@@ -1,0 +1,20 @@
+# ~/.xprofile
+
+# Auto-detect terminal if not already set
+
+# Terminal
+TERMINAL=${TERMINAL:-gnome-terminal}
+
+# Editor
+EDITOR=${EDITOR:-nvim}
+
+# Browser
+BROWSER=${BROWSER:-microsoft-edge-stable}
+
+# Pager
+PAGER=${PAGER:-less}
+
+# Path additions (optional)
+PATH="$HOME/bin:$PATH"
+
+export TERMINAL EDITOR BROWSER PAGER PATH

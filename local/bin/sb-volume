@@ -1,0 +1,21 @@
+#!/bin/sh
+
+
+SINK=$(pactl info | awk -F': ' '/Default Sink/ {print $2}')
+MUTE=$(pactl get-sink-mute "$SINK" | awk '{print $2}')
+VOLUME=$(pactl get-sink-volume "$SINK" | awk '{print $5}' | head -n1)
+
+if [ "$MUTE" = "yes" ]; then
+    ICON="🔇"
+else
+    ICON="🔊"
+fi
+
+echo "[ $ICON $VOLUME ]"
+
+case $BLOCK_BUTTON in
+    1) setsid -f "$TERMINAL" -- pavucontrol ;;
+    4) pactl set-sink-volume "$SINK" +5% ;;
+    5) pactl set-sink-volume "$SINK" -5% ;;
+    3) pactl set-sink-mute "$SINK" toggle ;;  # right click toggles mute
+esac

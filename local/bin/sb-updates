@@ -1,0 +1,21 @@
+#!/bin/sh
+
+UPDATES=$(checkupdates 2>/dev/null | wc -l)
+
+# Only do anything if there are updates
+[ "$UPDATES" -gt 0 ] || exit 0
+
+# Click handling (only runs if UPDATES > 0)
+case $BLOCK_BUTTON in
+    1) setsid -f "$TERMINAL" -e sb-popupgrade ;;
+    2) notify-send "Available updates" "$(checkupdates --nosync 2>/dev/null)" ;;
+    3) notify-send "🎁 Upgrade module" \
+"📦 Number of upgradable packages
+• Left click: upgrade packages
+• Middle click: list packages" ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# Output for dwmblocks
+printf "📦%s\n" "$UPDATES"
+

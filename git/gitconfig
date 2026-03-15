@@ -32,5 +32,6 @@
 	autocrlf = false
 [safe]
 	directory = /opt/tessdata
+	directory = /mnt/data/git/m365unattended
 [init]
 	defaultBranch = master

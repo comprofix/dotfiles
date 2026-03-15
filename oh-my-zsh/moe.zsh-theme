@@ -6,13 +6,14 @@ for COLOR in CYAN WHITE YELLOW MAGENTA BLACK BLUE RED DEFAULT GREEN GREY; do
     eval PR_BOLD_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
 if [ "$EUID" -ne 0 ]; then
-    PROMPT='%{$fg_bold[white]%}[%{$fg_bold[green]%}%n%{$fg_bold[white]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%~ %{$fg_bold[white]%}]%{$reset_color%}%(!.#.$) '
+    PROMPT='%{$fg_bold[white]%}[%{$fg_bold[red]%}%n%{$fg_bold[white]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%~ $(git_prompt_info)$(git_prompt_status)%{$fg_bold[white]%} ]%{$reset_color%}%(!.#.$) '
 else
-    PROMPT='%{$fg_bold[white]%}[%{$fg_bold[red]%}%n%{$fg_bold[white]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%~ %{$fg_bold[white]%}]%{$reset_color%}%(!.#.$) '
+    PROMPT='%{$fg_bold[white]%}[%{$fg_bold[green]%}%n%{$fg_bold[white]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%~ %{$fg_bold[white]%}]%{$reset_color%}%(!.#.$) '
+
 fi
 
-RPS1='$(git_prompt_info)$(git_prompt_status) $(svn_prompt_info) %{$reset_color%}'
-
+#RPS1='$(git_prompt_info)$(git_prompt_status) $(svn_prompt_info) %{$reset_color%}'
+RPS1=''
 PR_RESET="%{$reset_color%}"
 VCS_DIRTY_COLOR="${PR_RESET}${PR_BOLD_YELLOW}"
 VCS_CLEAN_COLOR="${PR_RESET}${PR_BOLD_GREEN}"
